@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine's Day 💖</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
-    <script defer src="/_vercel/insights/script.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -22,10 +21,10 @@
         .heart {
             position: absolute;
             bottom: 0;
-            left: 50%;
             color: #fff;
             font-size: 2em;
-            animation: floatUp 5s infinite;
+            animation: floatUp 6s infinite;
+            opacity: 0.7;
         }
         @keyframes floatUp {
             0% { transform: translateY(0); opacity: 1; }
@@ -52,21 +51,35 @@
             padding: 3rem 2rem;
             background-color: #fff;
             color: #333;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
-        .memory img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 15px;
-            margin: 1rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
+        .memory .memory-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: transform 0.4s;
         }
-        .memory img:hover {
+        .memory .memory-card:hover {
             transform: scale(1.05);
+        }
+        .memory .memory-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .memory .memory-card .caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            padding: 1rem;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px #000;
         }
         .letter {
             padding: 3rem 2rem;
@@ -103,9 +116,6 @@
             .hero p {
                 font-size: 1.2em;
             }
-            .memory img {
-                max-width: 90%;
-            }
             .letter p {
                 font-size: 1em;
             }
@@ -118,9 +128,21 @@
 </head>
 <body>
     <!-- Heart Animation -->
-    <div class="heart">❤️</div>
-    <div class="heart" style="left: 60%; animation-delay: 2s;">💗</div>
-    <div class="heart" style="left: 40%; animation-delay: 4s;">💞</div>
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = ['❤️','💗','💞','💓','💕'][Math.floor(Math.random() * 5)];
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${3 + Math.random() * 3}s`;
+                heart.style.fontSize = `${1 + Math.random() * 2}em`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                document.body.appendChild(heart);
+            }
+        }
+        createHearts();
+    </script>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -130,10 +152,18 @@
 
     <!-- Memory Section -->
     <section class="memory">
-        <h2>Our Beautiful Memories</h2>
-        <img src="https://via.placeholder.com/400x300?text=Our+Trip" alt="Memory 1">
-        <img src="https://via.placeholder.com/400x300?text=Our+Date" alt="Memory 2">
-        <img src="https://via.placeholder.com/400x300?text=Our+Laughs" alt="Memory 3">
+        <div class="memory-card">
+            <img src="https://iovwnqrucfhmpmpxmwem.supabase.co/storage/v1/object/sign/valentine/1669471692600.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2YWxlbnRpbmUvMTY2OTQ3MTY5MjYwMC5qcGciLCJpYXQiOjE3Mzk1MjI4NjIsImV4cCI6MTc0MDEyNzY2Mn0.3BorQoY-PkGuLgEPo7DAKUDxC5ezfjCIY0r8jAvryJw" alt="Memory 1">
+            <div class="caption">Our Trip 🌄</div>
+        </div>
+        <div class="memory-card">
+            <img src="https://iovwnqrucfhmpmpxmwem.supabase.co/storage/v1/object/sign/valentine/FB_IMG_1739521318977.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2YWxlbnRpbmUvRkJfSU1HXzE3Mzk1MjEzMTg5NzcuanBnIiwiaWF0IjoxNzM5NTIyODM3LCJleHAiOjE3NDAxMjc2Mzd9.OTAs5GNYHx3xtpRUH8Of_J6hz5uy5imC_H2P8C0zpz8" alt="Memory 2">
+            <div class="caption">Our Laughs 🏔️</div>
+        </div>
+        <div class="memory-card">
+            <img src="https://iovwnqrucfhmpmpxmwem.supabase.co/storage/v1/object/sign/valentine/FB_IMG_1739521293560.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2YWxlbnRpbmUvRkJfSU1HXzE3Mzk1MjEyOTM1NjAuanBnIiwiaWF0IjoxNzM5NTIyODg2LCJleHAiOjE3NDAxMjc2ODZ9.ppebJWa8UnvbGrIVfgOFq6TKxnpQC8l7qkHgCfnkwl8" alt="Memory 3">
+            <div class="caption">Our Date 🗺️</div>
+        </div>
     </section>
 
     <!-- Love Letter -->
@@ -143,13 +173,13 @@
         <p>Since the day we met, my life has been filled with happiness and warmth. You are my sunshine, my partner, and my best friend.</p>
         <p>Thank you for being with me every step of the way. I love you endlessly. Happy Valentine's Day! 💕</p>
         <p>Forever yours,</p>
-        <p><strong>[Your Name]</strong></p>
+        <!-- <p><strong>[Your Name]</strong></p> -->
     </section>
 
     <!-- Surprise Section -->
     <section class="surprise">
         <button onclick="showSurprise()">🎁 Open Your Surprise!</button>
-        <p id="surpriseMsg" style="display:none; margin-top:1rem; font-size:1.5em; color:#fff;">You're my greatest gift! 💝</p>
+        <p id="surpriseMsg" style="display:none; margin-top:1rem; font-size:1.5em; color:#fff;">Happy Valentine's Day. Love you today and always 💝</p>
     </section>
 
     <script>
