@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="/_vercel/insights/script.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Sarabun', sans-serif;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, #ff6b81, #ff4757);
+            overflow-x: hidden;
+        }
+        .heart {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            color: #fff;
+            font-size: 2em;
+            animation: floatUp 5s infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        .memory {
+            padding: 3rem 2rem;
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .memory img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        .memory img:hover {
+            transform: scale(1.05);
+        }
+        .letter {
+            padding: 3rem 2rem;
+            background-color: #ffe6e6;
+            color: #333;
+        }
+        .letter p {
+            font-size: 1.2em;
+            margin: 1rem 0;
+        }
+        .surprise {
+            padding: 3rem 2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .surprise button {
+            background-color: #fff;
+            color: #ff4757;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .surprise button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.2em;
+            }
+            .memory img {
+                max-width: 90%;
+            }
+            .letter p {
+                font-size: 1em;
+            }
+            .surprise button {
+                font-size: 1.2em;
+                padding: 0.75rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Heart Animation -->
+    <div class="heart">❤️</div>
+    <div class="heart" style="left: 60%; animation-delay: 2s;">💗</div>
+    <div class="heart" style="left: 40%; animation-delay: 4s;">💞</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Happy Valentine's Day 💖</h1>
+        <p>To my dearest love, you make every day special.</p>
+    </section>
+
+    <!-- Memory Section -->
+    <section class="memory">
+        <h2>Our Beautiful Memories</h2>
+        <img src="https://via.placeholder.com/400x300?text=Our+Trip" alt="Memory 1">
+        <img src="https://via.placeholder.com/400x300?text=Our+Date" alt="Memory 2">
+        <img src="https://via.placeholder.com/400x300?text=Our+Laughs" alt="Memory 3">
+    </section>
+
+    <!-- Love Letter -->
+    <section class="letter">
+        <h2>A Letter to You 💌</h2>
+        <p>My Love,</p>
+        <p>Since the day we met, my life has been filled with happiness and warmth. You are my sunshine, my partner, and my best friend.</p>
+        <p>Thank you for being with me every step of the way. I love you endlessly. Happy Valentine's Day! 💕</p>
+        <p>Forever yours,</p>
+        <p><strong>[Your Name]</strong></p>
+    </section>
+
+    <!-- Surprise Section -->
+    <section class="surprise">
+        <button onclick="showSurprise()">🎁 Open Your Surprise!</button>
+        <p id="surpriseMsg" style="display:none; margin-top:1rem; font-size:1.5em; color:#fff;">You're my greatest gift! 💝</p>
+    </section>
+
+    <script>
+        function showSurprise() {
+            document.getElementById('surpriseMsg').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
